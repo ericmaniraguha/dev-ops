@@ -43,6 +43,22 @@
     ![image](https://github.com/ericmaniraguha/docker-course/assets/44385819/324acc7f-8ca6-4fe7-a266-0cc1a7c6bb7b)
 
 
+# Docker Mongodb
+1. `docker pull mong` - download the latest version of mongodb to the local machine
+2. `docker image ls` - list all images from my containers
+3. ` docker run --name my-mongo-one -d mongo` - create and run mongodb with specified name 
+
+![image](https://github.com/ericmaniraguha/docker-course/assets/44385819/0237ef5b-493a-4951-8c3b-dcbd4bbad3ba)
+![image](https://github.com/ericmaniraguha/docker-course/assets/44385819/916ae77a-3394-4bca-a9fb-24bc23db7fe6)
+4. `docker run --name my-mongodb -p 4000:27017 mongo` - change the default port to 4000 port number of mongodb
+![image](https://github.com/ericmaniraguha/docker-course/assets/44385819/fc1bc2aa-8604-4079-aff7-45110bcce79f)
+5. ` docker run --name my-mongodb-one -p 4000:27017 -d mongo` - i can use detache as well 
+![image](https://github.com/ericmaniraguha/docker-course/assets/44385819/f629014b-5772-4ff6-8ad8-cad76e4a4cb8)
+![image](https://github.com/ericmaniraguha/docker-course/assets/44385819/7524a39c-3118-42c1-85b2-cb970f3abd19)
+![image](https://github.com/ericmaniraguha/docker-course/assets/44385819/2d0d6f2d-2687-4bee-bd97-0bdb372e2c96)
+
+
+
 
 
 
