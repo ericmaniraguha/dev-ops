@@ -109,5 +109,5 @@ Our `"mongo-exprexpress"` container is now running and accessible through `http:
 ## Docker Compose
 
 - `Why docker compose:` is a tool that helps you define and share multi-container applications. With Compose, you can create a YAML file to define the services and with a single command, you can spin everything up or tear it all down.
-- Source `[Docker Compose on Docker Hub](https://hub.docker.com/r/docker/compose)`
+- `Source :` [Docker Compose on Docker Hub](https://hub.docker.com/r/docker/compose)
 
