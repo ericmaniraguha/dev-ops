@@ -1,8 +1,9 @@
 # Course of Docker with commands
 ### Docker with Postgres
 
-`Source of docker apps`:https://hub.docker.com/
-`Source of docker documentation`:https://docs.docker.com/
+[Source of Docker Apps](https://hub.docker.com/)
+[Source of Docker Documentation](https://docs.docker.com/)
+
 
 ![image](https://github.com/ericmaniraguha/docker-course/assets/44385819/9acc6f57-574f-45d0-af71-3b89f573e131)# docker-course
 1. `docker pull postgres` Docker will download the latest version of the PostgreSQL image to your local system.
@@ -103,22 +104,4 @@ Our `"mongo-exprexpress"` container is now running and accessible through `http:
 `The container running in the browser` -- This is how we are connected to the mongodb 
 ![image](https://github.com/ericmaniraguha/docker-course/assets/44385819/39f6823d-b897-4dd5-9ce3-508da9e17161)
 
-`**Note:** If the database is not running the container stop as well.`
-
-## Docker Compose
---------------------------------------
-- `Why docker compose:` is a tool that helps you define and share multi-container applications. With Compose, you can create a YAML file to define the services and with a single command, you can spin everything up or tear it all down.
-- Source `https://hub.docker.com/r/docker/compose`
-
-
-
-
-
-
-
-
-
-
-
-
-
+`Note:` If the database is not running the container stop as well.
