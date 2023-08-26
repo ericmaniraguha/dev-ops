@@ -111,4 +111,46 @@ Our `"mongo-exprexpress"` container is now running and accessible through `http:
 
 - `Why docker compose:` is a tool that helps you define and share multi-container applications. With Compose, you can create a YAML file to define the services and with a single command, you can spin everything up or tear it all down.
 - `Source :` [Docker Compose on Docker Hub](https://hub.docker.com/r/docker/compose)
+1. `docker-compose up` - This command will read the `docker-compose.yaml` file and start the services mongodb and mongo-express as specified.
+- yaml file:
+  ```
+  version: '3'
+services:
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - "8081:8081"
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=password
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+
+- docker-compose.yaml file in screen shoot
+![image](https://github.com/ericmaniraguha/dev-ops/assets/44385819/b5a6b6c6-ac2d-484f-b586-0e6fbb6b51c2)
+
+![image](https://github.com/ericmaniraguha/dev-ops/assets/44385819/fad4ddf2-7117-4677-9410-582986d6b8b9)
+
+![image](https://github.com/ericmaniraguha/dev-ops/assets/44385819/b014f0e4-f714-4cc9-9e2d-0b6dabf5403d)
+
+- docker compose started and is open in the browser, I created as well the `new_db_created` ---database
+![image](https://github.com/ericmaniraguha/dev-ops/assets/44385819/171cf28e-4e26-4559-82dd-00b0091b8271)
+
+### create new collection
+![image](https://github.com/ericmaniraguha/dev-ops/assets/44385819/bcb00a4f-a31c-46e9-9fbb-eb1f2c9e5346)
+
+### create document
+![image](https://github.com/ericmaniraguha/dev-ops/assets/44385819/7e31e9df-ba90-4a4a-9238-1ba77cb7db59)
+![image](https://github.com/ericmaniraguha/dev-ops/assets/44385819/d32f20a3-cc14-4f40-86a3-4f5151cd0ea0)
+
+
+
 
