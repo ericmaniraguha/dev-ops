@@ -69,6 +69,43 @@
 
 3. `docker network ls` - list all networks
 4. ![image](https://github.com/ericmaniraguha/docker-course/assets/44385819/7a939b73-b948-4c30-8aa3-0b370a4463a1)
+5. To create a Docker container named "mongodb" with MongoDB using the following command:
+
+```bash
+docker run \
+   -p 27017:27017 \
+   -e MONGO_INITDB_ROOT_USERNAME=admin \
+   -e MONGO_INITDB_ROOT_PASSWORD=password \
+   --name mongodb \
+   --net mongo-network \
+   -d mongo
+```
+   ![image](https://github.com/ericmaniraguha/docker-course/assets/44385819/4a431465-361a-482b-ae56-15015a31936c)
+![image](https://github.com/ericmaniraguha/docker-course/assets/44385819/47c0324f-9cc4-41a3-8bcd-71bbbf37f226)
+
+```
+ docker run \
+-d -p 8081:8081 \
+-e ME_CONFIG_MONGODB_ADMINUSERNAME=admin \
+-e ME_CONFIG_MONGODB_ADMINPASSWORD=password \
+-e ME_CONFIG_MONGODB_SERVER=mongodb \
+--net mongo-network \
+--name mongo-exprexpress \
+mongo-express
+``` - The provided command creates a Docker container named "mongo-exprexpress" based on the "mongo-express" image.
+![image](https://github.com/ericmaniraguha/docker-course/assets/44385819/84f759f3-4804-4c3c-8d19-57d23e1e52fc)
+
+```
+Our `"mongo-exprexpress"` container is now running and accessible through `http://localhost:8081` or `http://<your_host_ip>:8081` in a web browser, allowing you to interact with MongoDB using the `"mongo-express"` web-based interface.
+```
+![image](https://github.com/ericmaniraguha/docker-course/assets/44385819/7d557db1-e81d-4614-9402-6b739cc6289a)
+
+`The container running in the browser` -- This is how we are connected to the mongodb 
+![image](https://github.com/ericmaniraguha/docker-course/assets/44385819/39f6823d-b897-4dd5-9ce3-508da9e17161)
+
+**`Note:`** If the database is not running the container stop as well.
+
+
 
 
 
