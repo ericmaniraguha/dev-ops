@@ -56,6 +56,20 @@
 ![image](https://github.com/ericmaniraguha/docker-course/assets/44385819/f629014b-5772-4ff6-8ad8-cad76e4a4cb8)
 ![image](https://github.com/ericmaniraguha/docker-course/assets/44385819/7524a39c-3118-42c1-85b2-cb970f3abd19)
 ![image](https://github.com/ericmaniraguha/docker-course/assets/44385819/2d0d6f2d-2687-4bee-bd97-0bdb372e2c96)
+![image](https://github.com/ericmaniraguha/docker-course/assets/44385819/3bd7fc0e-326d-4232-bd8a-297aea86728d)
+
+## docker mongo-express
+1. `docker network create mongo-network` - create a network named "mongo-network":
+2. `docker run -p 27017:27017 -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin -e ME_CONFIG_MONGODB_ADMINPASSWORD=password --name mongodb --net mongo-network -d mongo
+` - run the MongoDB container with the corrected command
+![image](https://github.com/ericmaniraguha/docker-course/assets/44385819/c7963eb5-6ecf-47e9-b925-7eada81cf2c5)
+![image](https://github.com/ericmaniraguha/docker-course/assets/44385819/c901bc6c-e50b-40bc-b84c-5e2915bba8a2)
+![image](https://github.com/ericmaniraguha/docker-course/assets/44385819/a9cd2d15-2c11-4fc5-bff8-2c1c2f6a3abc)
+
+
+3. `docker network ls` - list all networks
+4. ![image](https://github.com/ericmaniraguha/docker-course/assets/44385819/7a939b73-b948-4c30-8aa3-0b370a4463a1)
+
 
 
 
