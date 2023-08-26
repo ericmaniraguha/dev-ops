@@ -105,3 +105,9 @@ Our `"mongo-exprexpress"` container is now running and accessible through `http:
 ![image](https://github.com/ericmaniraguha/docker-course/assets/44385819/39f6823d-b897-4dd5-9ce3-508da9e17161)
 
 `Note:` If the database is not running the container stop as well.
+```
+## Docker Compose
+
+- `Why docker compose:` is a tool that helps you define and share multi-container applications. With Compose, you can create a YAML file to define the services and with a single command, you can spin everything up or tear it all down.
+- Source `[Docker Compose on Docker Hub](https://hub.docker.com/r/docker/compose)`
+
