@@ -151,6 +151,51 @@ services:
 ![image](https://github.com/ericmaniraguha/dev-ops/assets/44385819/7e31e9df-ba90-4a4a-9238-1ba77cb7db59)
 ![image](https://github.com/ericmaniraguha/dev-ops/assets/44385819/d32f20a3-cc14-4f40-86a3-4f5151cd0ea0)
 
+## rename volumes
+1. The volumes section is used to define named volumes that will be used by the containers. Volumes are a way to persist data outside of a container's lifecycle. They are often used to store data that needs to be preserved even if the container is removed or replaced.
+2. `mymongo-data` is the name of the volume. This is an arbitrary name you can choose to identify the volume.
+`driver: local` specifies that this volume will be created and managed locally on the host machine.
 
+The volume is defined under the `mongodb service`, which means that any data that needs to be persisted for the MongoDB container will be stored in the` mymongo-data volume`.
 
+In this specific case, the volume is used to store MongoDB data under the `/data/db` directory. This ensures that even if the MongoDB container is removed or replaced, the data will be preserved and can be attached to a new container instance.
+
+**Note**:The volumes section is a powerful feature of Docker and Docker Compose that `allows you to manage data and state for containers in a flexible and durable way`. *It's commonly used for databases, file storage, and other types of persistent data.*
+
+```
+version: '3'
+services:
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - mymongo-data:/data/db
+    networks:
+      - my-network
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - "8081:8081"
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=password
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+    networks:
+      - my-network
+
+volumes:
+  mymongo-data:
+    driver: local
+
+networks:
+  my-network:
+    driver: bridge
+
+```
 
