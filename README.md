@@ -283,5 +283,5 @@ networks:
   my-network:
     driver: bridge
 ```
-Here the notice is that it brings back the data persister. 
+Here the notice is that it brings back the persister data. 
 
