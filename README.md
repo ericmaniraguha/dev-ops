@@ -162,6 +162,8 @@ In this specific case, the volume is used to store MongoDB data under the `/data
 
 **Note**:The volumes section is a powerful feature of Docker and Docker Compose that `allows you to manage data and state for containers in a flexible and durable way`. *It's commonly used for databases, file storage, and other types of persistent data.*
 
+## understand data persistence
+
 ```
 version: '3'
 services:
@@ -198,4 +200,88 @@ networks:
     driver: bridge
 
 ```
+### Start the yaml file
+
+![image](https://github.com/ericmaniraguha/dev-ops/assets/44385819/90b36971-9a85-45fd-beab-b91eeef370b3)
+
+After no persistence of the data in the browser: -- this is because `I have mounted different volumes` till no persistence of the data.
+![image](https://github.com/ericmaniraguha/dev-ops/assets/44385819/0e324602-0cf7-422a-b8a5-e5d01277bb21)
+
+```
+version: '3'
+services:
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - mymongo-data-one:/data/db
+    networks:
+      - my-network
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - "8081:8081"
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=password
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+    networks:
+      - my-network
+
+volumes:
+  mymongo-data-one:
+    driver: local
+
+networks:
+  my-network:
+    driver: bridge
+```
+--- here i created another volume to the previous one: - result 
+![image](https://github.com/ericmaniraguha/dev-ops/assets/44385819/ced23d3e-39d6-41a8-9289-beb3dbf3d3b9)
+![image](https://github.com/ericmaniraguha/dev-ops/assets/44385819/cbb5aa25-e10b-40db-84c9-e002aedd78b6)
+
+## Then changing volume back to old one
+
+```
+version: '3'
+services:
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - mymongo-data:/data/db
+    networks:
+      - my-network
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - "8081:8081"
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=password
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+    networks:
+      - my-network
+
+volumes:
+  mymongo-data:
+    driver: local
+
+networks:
+  my-network:
+    driver: bridge
+```
+Here the notice is that it brings back the data persister. 
 
